@@ -1,2 +1,8 @@
-ServerAliveInterval 300
-ServerAliveCountMax 100
+
+Host *
+    PrefferedAuthentications hostbased, publickey, password, keyboard-interactive
+    Compression yes
+    ServerAliveInterval 300
+    ServerAliveCountMax 100
+    CompressionLevel 9
+    FallBackToRsh no
