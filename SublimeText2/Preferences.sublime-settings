@@ -129,10 +129,10 @@
     "match_selection": true,
 
     // Additional spacing at the top of each line, in pixels
-    "line_padding_top": 0,
+    "line_padding_top": 1,
 
     // Additional spacing at the bottom of each line, in pixels
-    "line_padding_bottom": 0,
+    "line_padding_bottom": 1,
 
     // Set to false to disable scrolling past the end of the buffer.
     // On OS X, this value is overridden in the platform specific settings, so
@@ -239,7 +239,7 @@
     //
 
     // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
-    "theme": "Soda Light.sublime-theme",
+    "theme": "Soda Dark.sublime-theme",
 
     // Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to
     // scroll slower, or set to larger than 1 to scroll faster
