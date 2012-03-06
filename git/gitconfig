@@ -47,7 +47,7 @@
     pp = !git pull && git push
     ppu = !git pp && git submodule sync && git submodule update --init
 
-    ls           = "!git status -suno"
+    ls           = "!git status -su --ignore"
     ls-modified  = "!git status --porcelain -uno | awk 'match($1, /M/) {print $2}'"
     ls-added     = "!git status --porcelain -uno | awk 'match($1, /A/) {print $2}'"
     ls-deleted   = "!git status --porcelain -uno | awk 'match($1, /D/) {print $2}'"
