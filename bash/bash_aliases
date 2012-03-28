@@ -28,3 +28,9 @@ alias active='grep -v -e "^$" -e"^ *#"'
 alias diskspace="du -S | sort -n -r |more"
 alias diskusage="du -S | sort -n -r |more"
 alias tr='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
+
+
+# Editing
+alias svim='sudo vim'
+alias snano='sudo nano'
+alias svi='sudo vim'
