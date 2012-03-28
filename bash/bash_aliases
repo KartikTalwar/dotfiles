@@ -1,23 +1,26 @@
 # File and Folder
 alias md='mkdir -p'
-alias rd=rmdir
+alias rd='rmdir'
 alias delete='sudo rm -rf'
-
+alias mv='sudo mv'
+alias mb='sudo mv'
 
 
 # Listings
 alias home='cd ~' 
-alias cls= 'clear; ls'
-alias ls='ls -hF --color'
+alias cls='clear'
 alias ll='ls -l'
-alias sl= 'ls'
+alias sl='ls'
 alias sls='ls'
-alias kk=ll
-alias lo='ls -l | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g' -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g''
+alias kk='ll'
+alias lm='ls -l | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g' -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g''
+alias modd='ls -l | sed -e 's/--x/1/g' -e 's/-w-/2/g' -e 's/-wx/3/g' -e 's/r--/4/g' -e 's/r-x/5/g' -e 's/rw-/6/g' -e 's/rwx/7/g' -e 's/---/0/g''
+alias ls='ls -hF --color'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias tr='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 
 # Stats
@@ -27,7 +30,6 @@ alias psx="ps -auxw ¦ grep $1"
 alias active='grep -v -e "^$" -e"^ *#"'
 alias diskspace="du -S | sort -n -r |more"
 alias diskusage="du -S | sort -n -r |more"
-alias tr='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 
 
 # Editing
@@ -39,27 +41,35 @@ alias svi='sudo vim'
 # Bash
 alias aliases='vim ~/.bash_aliases;reload'
 alias reload='. ~/.bash_aliases'
-alias resrc="source ~/.bashrc"
+alias resrc='source ~/.bashrc'
 
 
 # System
-alias install= 'sudo apt-get update && sudo apt-get install'
+alias install='sudo apt-get install'
 alias apt-get='sudo apt-get'
 alias yum='sudo yum'
+alias help='man'
 
 
 # Git
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias ga='git add'
+alias gadd='git add'
+alias grm='git rm'
+alias gf='git fetch'
 alias gp='git push'
 alias gd='git diff'
 alias gc='git commit'
+alias gcm='git commit -m'
 alias gca='git commit -a'
 alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status -sb'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-
+alias gpp='git pull && git push'
+alias glol='log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gppl='git log --pretty=format:%aN | sort | uniq -c | sort -rn'
 
 # Just for fun
 alias matrix='echo -ne "\e[32m" ; while true ; do echo -ne "\e[$(($RANDOM % 2 + 1))m" ; tr -c "[:print:]" " " < /dev/urandom | dd count=1 bs=50 2> /dev/null ; done'
