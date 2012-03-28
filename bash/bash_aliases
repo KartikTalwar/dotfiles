@@ -40,3 +40,9 @@ alias svi='sudo vim'
 alias aliases='vim ~/.bash_aliases;reload'
 alias reload='. ~/.bash_aliases'
 alias resrc="source ~/.bashrc"
+
+
+# System
+alias install= 'sudo apt-get update && sudo apt-get install'
+alias apt-get='sudo apt-get'
+alias yum='sudo yum'
