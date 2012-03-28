@@ -30,6 +30,8 @@ alias psx="ps -auxw ¦ grep $1"
 alias active='grep -v -e "^$" -e"^ *#"'
 alias diskspace="du -S | sort -n -r |more"
 alias diskusage="du -S | sort -n -r |more"
+alias kill='sudo kill -9'
+alias killall='sudo killall -v'
 
 
 # Editing
@@ -70,6 +72,7 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gpp='git pull && git push'
 alias glol='log --graph --decorate --pretty=oneline --abbrev-commit'
 alias gppl='git log --pretty=format:%aN | sort | uniq -c | sort -rn'
+
 
 # Just for fun
 alias matrix='echo -ne "\e[32m" ; while true ; do echo -ne "\e[$(($RANDOM % 2 + 1))m" ; tr -c "[:print:]" " " < /dev/urandom | dd count=1 bs=50 2> /dev/null ; done'
