@@ -1,0 +1,5 @@
+# File and Folder
+alias md='mkdir -p'
+alias rd=rmdir
+alias delete='sudo rm -rf'
+
