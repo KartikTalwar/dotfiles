@@ -34,3 +34,9 @@ alias tr='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
 alias svim='sudo vim'
 alias snano='sudo nano'
 alias svi='sudo vim'
+
+
+# Bash
+alias aliases='vim ~/.bash_aliases;reload'
+alias reload='. ~/.bash_aliases'
+alias resrc="source ~/.bashrc"
