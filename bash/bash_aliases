@@ -32,6 +32,7 @@ alias diskspace="du -S | sort -n -r |more"
 alias diskusage="du -S | sort -n -r |more"
 alias kill='sudo kill -9'
 alias killall='sudo killall -v'
+alias memusage='ps aux | awk '$11!~/\[*\]/ {print $6/1024" Mb ==> "$11}' | sort -g'
 
 
 # Editing
