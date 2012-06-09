@@ -31,42 +31,42 @@
 [diff]
     renames                 = true
 [alias]
-    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
-    add-unmerged  = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    edit-unmerged           = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
+    add-unmerged            = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
-    lc            = log ORIG_HEAD.. --stat --no-merges
-    smash         = merge --no-commit --log
-    eat           = branch -M
-    prune-all     = !git remote | xargs -n 1 git remote prune
-    whois         = "!sh -c 'git log -i --pretty=\"format:%an <%ae>\" --author=\"$1\" | sort -u' -"
-    whatis        = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-    this          = !git init && ( [[ -n $(ls) ]] || touch .gitignore ) && git add . && git commit -m \"initial commit\"
+    lc                      = log ORIG_HEAD.. --stat --no-merges
+    smash                   = merge --no-commit --log
+    eat                     = branch -M
+    prune-all               = !git remote | xargs -n 1 git remote prune
+    whois                   = "!sh -c 'git log -i --pretty=\"format:%an <%ae>\" --author=\"$1\" | sort -u' -"
+    whatis                  = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+    this                    = !git init && ( [[ -n $(ls) ]] || touch .gitignore ) && git add . && git commit -m \"initial commit\"
 
-    sp            = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git stash pop
-    spp           = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git push && git stash pop
-    pp            = !git pull && git push
-    ppu           = !git pp && git submodule sync && git submodule update --init
+    sp                      = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git stash pop
+    spp                     = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git push && git stash pop
+    pp                      = !git pull && git push
+    ppu                     = !git pp && git submodule sync && git submodule update --init
 
-    ls            = "!git status -su --ignore"
-    ls-modified   = "!git status --porcelain -uno | awk 'match($1, /M/) {print $2}'"
-    ls-added      = "!git status --porcelain -uno | awk 'match($1, /A/) {print $2}'"
-    ls-deleted    = "!git status --porcelain -uno | awk 'match($1, /D/) {print $2}'"
-    ls-renamed    = "!git status --porcelain -uno | awk 'match($1, /R/) {print $2}'"
-    ls-copied     = "!git status --porcelain -uno | awk 'match($1, /C/) {print $2}'"
-    ls-updated    = "!git status --porcelain -uno | awk 'match($1, /U/) {print $2}'"
-    ls-staged     = "!git status --porcelain -uno | grep -P '^[MA]' | awk '{ print $2 }'"
-    ls-untracked  = "!git status --porcelain -uall | awk '$1 == \"??\" {print $2}'"
+    ls                      = "!git status -su --ignore"
+    ls-modified             = "!git status --porcelain -uno | awk 'match($1, /M/) {print $2}'"
+    ls-added                = "!git status --porcelain -uno | awk 'match($1, /A/) {print $2}'"
+    ls-deleted              = "!git status --porcelain -uno | awk 'match($1, /D/) {print $2}'"
+    ls-renamed              = "!git status --porcelain -uno | awk 'match($1, /R/) {print $2}'"
+    ls-copied               = "!git status --porcelain -uno | awk 'match($1, /C/) {print $2}'"
+    ls-updated              = "!git status --porcelain -uno | awk 'match($1, /U/) {print $2}'"
+    ls-staged               = "!git status --porcelain -uno | grep -P '^[MA]' | awk '{ print $2 }'"
+    ls-untracked            = "!git status --porcelain -uall | awk '$1 == \"??\" {print $2}'"
 
-    sup           = !git submodule sync && git submodule update --init
-    uncommit      = reset --hard HEAD~1
+    sup                     = !git submodule sync && git submodule update --init
+    uncommit                = reset --hard HEAD~1
 
-    alias         = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || [ $# = 1 ] && [ $1 = \"--list\" ] && git config --list | grep \"alias\\.\" | sed \"s/^alias\\.\\([^=]*\\)=\\(.*\\).*/\\1@@@@=>@@@@\\2/\" | sort | column -ts \"@@@@\" && exit 0 || echo \"usage: git alias <new alias> <original command>\\n       git alias --list\" >&2 && exit 1' -"
-    ignore        = "!sh -c '([ $# = 2 ] && ([ \"$1\" = \"--local\" ] && echo \"$2\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\" || ([ \"$2\" = \"--local\" ] && echo \"$1\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\"))) || ([ $# = 1 ] && (([ \"$1\" == \"--list\" ] && git ls-files -i --exclude-standard) || (([ ! -e .gitignore ] && touch .gitignore || echo \"$(cat .gitignore)\" > .gitignore) && echo \"$1\" >> .gitignore))) || echo \"usage: git ignore <file>\\n       git ignore --local <file>\\n       git ignore --list\" >&2 && exit 1' -"
+    alias                   = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || [ $# = 1 ] && [ $1 = \"--list\" ] && git config --list | grep \"alias\\.\" | sed \"s/^alias\\.\\([^=]*\\)=\\(.*\\).*/\\1@@@@=>@@@@\\2/\" | sort | column -ts \"@@@@\" && exit 0 || echo \"usage: git alias <new alias> <original command>\\n       git alias --list\" >&2 && exit 1' -"
+    ignore                  = "!sh -c '([ $# = 2 ] && ([ \"$1\" = \"--local\" ] && echo \"$2\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\" || ([ \"$2\" = \"--local\" ] && echo \"$1\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\"))) || ([ $# = 1 ] && (([ \"$1\" == \"--list\" ] && git ls-files -i --exclude-standard) || (([ ! -e .gitignore ] && touch .gitignore || echo \"$(cat .gitignore)\" > .gitignore) && echo \"$1\" >> .gitignore))) || echo \"usage: git ignore <file>\\n       git ignore --local <file>\\n       git ignore --list\" >&2 && exit 1' -"
 
-    lol           = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola          = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lol                     = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola                    = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
-    cs            = !git ls-staged | grep ".php" | xargs phpcs
+    cs                      = !git ls-staged | grep ".php" | xargs phpcs
 
-    peeps         = !git log --pretty=format:%aN | sort | uniq -c | sort -rn
-    graph         = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    peeps                   = !git log --pretty=format:%aN | sort | uniq -c | sort -rn
+    graph                   = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
