@@ -1,4 +1,3 @@
-
 Host *
     PrefferedAuthentications hostbased, publickey, password, keyboard-interactive
     Compression yes
@@ -6,3 +5,7 @@ Host *
     ServerAliveCountMax 100
     CompressionLevel 9
     FallBackToRsh no
+
+Host physclub
+    HostName caffeine.csclub.uwaterloo.ca
+    User ktalwar
