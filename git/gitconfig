@@ -58,7 +58,8 @@
     ls-untracked            = "!git status --porcelain -uall | awk '$1 == \"??\" {print $2}'"
 
     sup                     = !git submodule sync && git submodule update --init
-    uncommit                = reset --hard HEAD~1
+    uncommit                = reset --soft HEAD~1
+    uncommith               = reset --hard HEAD~1
 
     alias                   = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || [ $# = 1 ] && [ $1 = \"--list\" ] && git config --list | grep \"alias\\.\" | sed \"s/^alias\\.\\([^=]*\\)=\\(.*\\).*/\\1@@@@=>@@@@\\2/\" | sort | column -ts \"@@@@\" && exit 0 || echo \"usage: git alias <new alias> <original command>\\n       git alias --list\" >&2 && exit 1' -"
     ignore                  = "!sh -c '([ $# = 2 ] && ([ \"$1\" = \"--local\" ] && echo \"$2\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\" || ([ \"$2\" = \"--local\" ] && echo \"$1\" >> \"./$(git rev-parse --show-cdup)/.git/info/exclude\"))) || ([ $# = 1 ] && (([ \"$1\" == \"--list\" ] && git ls-files -i --exclude-standard) || (([ ! -e .gitignore ] && touch .gitignore || echo \"$(cat .gitignore)\" > .gitignore) && echo \"$1\" >> .gitignore))) || echo \"usage: git ignore <file>\\n       git ignore --local <file>\\n       git ignore --list\" >&2 && exit 1' -"
