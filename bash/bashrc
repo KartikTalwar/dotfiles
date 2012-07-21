@@ -20,3 +20,11 @@ function extract()
          echo "'$1' is not a valid file"
      fi
 }
+
+
+# Simple Backup Program
+function backup()
+{
+    DATE=$(date +%H_%M_%d_%m-%Y)
+    tar -czf ${1%/}.$DATE.tar.gz ${1%/}
+}
