@@ -65,7 +65,7 @@ class TVShows:
 
     def airsToday(self, show):
         today = time.strftime("%m/%d/%Y")
-        today = "04/27/2012"
+        today = "05/03/2012"
 
         for k,v in show.iteritems():        
             for i in v:
@@ -76,19 +76,26 @@ class TVShows:
 
 
     def getShowID(self, show):
-        return show
+        url = "http://gomiso.com/search?count=5&teaser=false&q=" + show
+        get = urllib.urlopen(url).read()
+        rez = [self._strip(i) for i in self._cut("gomiso.com/m/", '"', get)]
+
+        return rez[0]
 
 
     def parse(self):
         rez = []
 
         for i in self.shows:
-            name = self.getShowID(i)
-            data = self.parseShow(name)
-            show = self.airsToday(data)
+            try:
+                name = self.getShowID(i)
+                data = self.parseShow(name)
+                show = self.airsToday(data)
 
-            if show is not None:
-                rez.append(show)
+                if show is not None:
+                    rez.append(show)
+            except:
+                pass
 
         return rez
 
@@ -108,10 +115,15 @@ class TVShows:
 
 
 from pprint import pprint
-shows =  ['Fringe']
+shows =  ['big bang theory', 'community', 'parks and recreation', 'the office']
 tv    = TVShows(shows)
+today = tv.parse()
 
-pprint(tv.parse())
+print "\n"
+for i in today:
+    print "\t => ", i
+print "\n"
+
 
 
 
