@@ -9,3 +9,7 @@ Host *
 Host physclub
     HostName caffeine.csclub.uwaterloo.ca
     User ktalwar
+
+Host opendata
+    HostName opendata.uwaterloo.ca
+    User ktalwar
