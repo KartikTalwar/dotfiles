@@ -65,7 +65,6 @@ class TVShows:
 
     def airsToday(self, show):
         today = time.strftime("%m/%d/%Y")
-        today = "05/03/2012"
 
         for k,v in show.iteritems():        
             for i in v:
@@ -114,16 +113,13 @@ class TVShows:
         return re.sub('(\n|\r|\t)', '', data)
 
 
-from pprint import pprint
-shows =  ['big bang theory', 'community', 'parks and recreation', 'the office']
-tv    = TVShows(shows)
-today = tv.parse()
 
-print "\n"
-for i in today:
-    print "\t => ", i
-print "\n"
+if __name__ == '__main__':
 
+    shows = ['doctor who', 'fringe', 'suits']
+    tv    = TVShows(shows)
+    today = tv.parse()
 
-
+    for i in today:
+        print i
 
