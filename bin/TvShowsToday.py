@@ -2,6 +2,7 @@ import time
 import urllib
 import re
 
+
 class TVShows:
 
     def __init__(self, shows, cmd=None):
@@ -109,6 +110,7 @@ class TVShows:
 
         return rez
 
+
     def _strip(self, data):
         return re.sub('(\n|\r|\t)', '', data)
 
@@ -116,7 +118,13 @@ class TVShows:
 
 if __name__ == '__main__':
 
-    shows = ['doctor who', 'fringe', 'suits']
+    fall   = ['big bang theory', 'modern family', 'parks and recreation', 'the office', 
+              'community', 'dexter', 'doctor who', 'how I met your mother', 'fringe']
+    winter = ['californication', 'game of thrones', 'sherlock']
+    spring = ['breaking bad', 'eureka', 'white collar', 'suits', 'the newsroom',
+              'falling skies', 'futurama']
+
+    shows = fall + winter + spring
     tv    = TVShows(shows)
     today = tv.parse()
 
