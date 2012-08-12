@@ -28,3 +28,10 @@ function backup()
     DATE=$(date +%H_%M_%d_%m-%Y)
     tar -czf ${1%/}.$DATE.tar.gz ${1%/}
 }
+
+
+# Handy File Search
+function ff()
+{
+    find -maxdepth 10 -type f | grep -i "$1"; 
+}
