@@ -66,12 +66,17 @@ class TVShows:
 
     def airsToday(self, show):
         today = time.strftime("%m/%d/%Y")
+        multi = []
 
         for k,v in show.iteritems():        
             for i in v:
                 date = i.split("[Aired ")[1].split(']')[0]
                 if date == today:
-                    return k + " " + i.split(" [Aired ")[0]
+                    multi.append( k + " " + i.split(" [Aired ")[0] )
+        
+        if len(multi) > 0:
+            return multi
+
         return None
 
 
@@ -93,7 +98,7 @@ class TVShows:
                 show = self.airsToday(data)
 
                 if show is not None:
-                    rez.append(show)
+                    rez += show
             except:
                 pass
 
