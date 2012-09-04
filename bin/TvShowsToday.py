@@ -81,11 +81,14 @@ class TVShows:
 
 
     def getShowID(self, show):
-        url = "http://gomiso.com/search?count=5&teaser=false&q=" + show
-        get = urllib.urlopen(url).read()
-        rez = [self._strip(i) for i in self._cut("gomiso.com/m/", '"', get)]
+        if '-' not in show:
+            url = "http://gomiso.com/search?count=5&teaser=false&q=" + show
+            get = urllib.urlopen(url).read()
+            rez = [self._strip(i) for i in self._cut("gomiso.com/m/", '"', get)]
 
-        return rez[0]
+            return rez[0]
+
+        return show
 
 
     def parse(self):
@@ -127,7 +130,7 @@ if __name__ == '__main__':
               'community', 'dexter', 'doctor who', 'how I met your mother', 'fringe']
     winter = ['californication', 'game of thrones', 'sherlock']
     spring = ['breaking bad', 'eureka', 'white collar', 'suits', 'the newsroom',
-              'falling skies', 'futurama']
+              'falling skies', 'futurama', 'revolution--2']
 
     shows = fall + winter + spring
     tv    = TVShows(shows)
