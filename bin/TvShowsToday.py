@@ -126,11 +126,10 @@ class TVShows:
 
 if __name__ == '__main__':
 
-    fall   = ['big bang theory', 'modern family', 'parks and recreation', 'the office', 
-              'community', 'dexter', 'doctor who', 'how I met your mother', 'fringe',
-              'revolution--2']
-    winter = ['californication', 'game of thrones', 'sherlock']
-    spring = ['breaking bad', 'eureka', 'white collar', 'suits', 'the newsroom',
+    fall   = ['doctor who', 'fringe', 'community', 'revolution--2', 'how i met your mother', 
+              'parks and recreation', 'the office', 'dexter', 'big bang theory']
+    winter = [ 'sherlock', 'californication', 'game of thrones']
+    spring = ['white collar', 'breaking bad', 'suits', 'the newsroom', 'eureka', 
               'falling skies', 'futurama']
 
     shows = fall + winter + spring
@@ -140,3 +139,4 @@ if __name__ == '__main__':
     for i in today:
         print i
 
+ 
