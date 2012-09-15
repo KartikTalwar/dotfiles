@@ -127,7 +127,7 @@ class TVShows:
 if __name__ == '__main__':
 
     fall   = ['doctor who', 'fringe', 'community', 'revolution--2', 'how i met your mother', 
-              'parks and recreation', 'the office', 'dexter', 'big bang theory']
+              'parks and recreation', 'the office', 'dexter', 'big bang theory', 'modern family']
     winter = [ 'sherlock', 'californication', 'game of thrones']
     spring = ['white collar', 'breaking bad', 'suits', 'the newsroom', 'eureka', 
               'falling skies', 'futurama']
