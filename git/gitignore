@@ -21,4 +21,4 @@
 *.class
 *.psd
 *.db
-
+.*.sw[a-z]
