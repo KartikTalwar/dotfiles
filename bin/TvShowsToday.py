@@ -75,7 +75,7 @@ class TVShows:
                     multi.append( k + " " + i.split(" [Aired ")[0] )
         
         if len(multi) > 0:
-            return multi
+            return multi[::-1]
 
         return None
 
