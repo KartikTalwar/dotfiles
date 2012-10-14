@@ -1,0 +1,12 @@
+set number
+set encoding=utf-8
+set hlsearch
+set smartcase
+set ignorecase
+set softtabstop=4
+set wrap
+set backspace=2
+set t_Co=256
+set tabstop=4
+set shiftwidth=4
+set expandtab
