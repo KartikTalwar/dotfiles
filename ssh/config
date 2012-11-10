@@ -13,3 +13,7 @@ Host physclub
 Host opendata
     HostName opendata.uwaterloo.ca
     User ktalwar
+
+Host science
+    HostName sciborg.uwaterloo.ca
+    User ktalwar
