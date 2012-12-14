@@ -21,9 +21,9 @@
     old                     = red bold
     new                     = green bold
 [color "status"]
-    added                   = cyan
+    added                   = yellow bold
     changed                 = green
-    untracked               = yellow    
+    untracked               = cyan bold
 [push]
     default                 = tracking
 [fetch]
