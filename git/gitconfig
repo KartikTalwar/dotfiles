@@ -16,8 +16,8 @@
     diff                    = auto
     status                  = auto
 [color "diff"]
-    meta                    = yellow bold
     frag                    = magenta bold
+    meta                    = yellow bold
     old                     = red bold
     new                     = green bold
 [color "status"]
