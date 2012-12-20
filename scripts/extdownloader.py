@@ -29,6 +29,8 @@ class extDownloader:
             link = i['href']
             if not link.startswith('http'):
                 rez.append(urlparse.urljoin(url, link))
+            else:
+                rez.append(link)
 
         return rez
 
