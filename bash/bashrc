@@ -35,3 +35,10 @@ function ff()
 {
     find -maxdepth 10 -type f | grep -i "$1"; 
 }
+
+
+# Load Aliases
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
