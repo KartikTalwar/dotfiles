@@ -10,8 +10,8 @@ import sys
 
 class extDownloader:
 
-    def __init__(self, url, ext):
-        self.url = url
+    def __init__(self, urls, ext):
+        self.urls = [urls] if type(urls) == str else urls
         self.ext = ext
         self.browser = mechanize.Browser()
         self.browser.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) \
@@ -20,26 +20,28 @@ class extDownloader:
 
 
     def findLinks(self):
-        get = self.browser.open(self.url).read()
-        bs4 = BeautifulSoup.BeautifulSoup(get)
-
         rez = []
 
-        for i in bs4.findAll('a'):
-            link = i['href']
-            if not link.startswith('http'):
-                rez.append(urlparse.urljoin(url, link))
-            else:
-                rez.append(link)
+        for url in self.urls:
+            get = self.browser.open(url).read()
+            bs4 = BeautifulSoup.BeautifulSoup(get)
 
-        return rez
+            for i in bs4.findAll('a'):
+                link = i['href']
+                if not link.startswith('http'):
+                    rez.append(urlparse.urljoin(url, link))
+                else:
+                    rez.append(link)
+
+        return set(rez)
 
 
     def getFiles(self):
         rez = []
+        ext = map(lambda x: x.lower(), self.ext)
 
         for i in self.findLinks():
-            if i.endswith(self.ext):
+            if i.split('.')[-1].lower() in ext:
                 rez.append(i)
 
         return rez
@@ -102,10 +104,9 @@ class extDownloader:
 
 if __name__ == '__main__':
 
-    url   = 'http://physics1.uwaterloo.ca/phys363/'
-    ext   = 'pdf' # could be any extension
+    url   = ['http://physics1.uwaterloo.ca/phys363/']
+    ext   = ['pdf', 'csv', 'jpeg', 'jpg', 'png', 'gif']
     start = extDownloader(url, ext)
 
     start.download()
-
 
