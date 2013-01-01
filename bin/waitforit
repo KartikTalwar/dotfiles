@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-
-# Proper usage: https://github.com/SimpleFinance/waitforit
 NAME="waitforit"
 VERSION="0.1.1"
 
