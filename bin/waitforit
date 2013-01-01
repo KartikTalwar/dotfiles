@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+
+# Proper usage: https://github.com/SimpleFinance/waitforit
+NAME="waitforit"
+VERSION="0.1.1"
+
+function version() {
+    echo "${NAME}: ${VERSION}"
+}
+
+function usage() {
+    cat <<EOF
+Usage: $NAME [options] -p PORT
+
+Options:
+  -p PORT            port for the healthceck
+  -H HOST            host to check [default: localhost]
+  -u URL             url to check [default: /healtcheck]
+
+  -i INTERVAL        interval between checks in seconds [default: 5]
+  -t TOTAL_TIMEOUT   total time to wait in seconds [default: 60]
+  -c CON_TIMEOUT     max time an individual check is allowed [default: 2]
+EOF
+}
+
+host="localhost"
+port=""
+url="/healthcheck"
+interval=1
+total=60
+con=2
+
+while getopts "hvi:t:p:u:H:c:" opt; do
+    case $opt in
+        h)
+            usage
+            exit 0
+            ;;
+        v)
+            version
+            exit 0;
+            ;;
+        p)
+            port=$OPTARG
+            ;;
+        u)
+            url=$OPTARG
+            ;;
+        i)
+            interval=$OPTARG
+            ;;
+        t)
+            total=$OPTARG
+            ;;
+        H)
+            host=$OPTARG
+            ;;
+        c)
+            con=$OPTARG
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+    esac
+done
+
+if [ -z "$port" ]; then
+    echo "Error: port is required"
+    usage
+    exit 1;
+fi
+
+start=$(date +'%s')
+end=$((start + total))
+
+while [ $(date +'%s') -lt $end ]; do
+    before=$(date +'%s')
+    curl --max-time 2 -fs "http://${host}:${port}${url}" >/dev/null 2>&1 && exit 0
+    after=$(date +'%s')
+    sleepfor=$((after - before - interval))
+    if [ $sleepfor -gt 0 ]; then
+        sleep $sleepfor
+    fi
+done
+echo "service failed to respond to healthcheck for $(($(date +'%s') - start)) seconds"
+exit 1
