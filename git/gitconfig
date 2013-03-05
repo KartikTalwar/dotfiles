@@ -2,13 +2,6 @@
     email                   = hi@kartikt.com
     name                    = Kartik Talwar
 [core]
-    repositoryformatversion = 0
-    filemode                = false
-    bare                    = false
-    logallrefupdates        = true
-    symlinks                = false
-    ignorecase              = true
-    hideDotFiles            = dotGitOnly
     excludesfile            = ~/.gitignore
     editor                  = /usr/bin/vim
 [color]
