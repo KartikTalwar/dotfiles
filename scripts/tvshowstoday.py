@@ -129,9 +129,9 @@ if __name__ == '__main__':
     fall   = ['doctor who', 'fringe', 'community', 'revolution--2', 'how i met your mother', 
               'parks and recreation', 'the office', 'dexter', 'big bang theory', 'modern family',
               'elementary']
-    winter = [ 'sherlock', 'californication', 'game of thrones']
+    winter = [ 'sherlock', 'californication', 'game of thrones', 'house of lies']
     spring = ['white collar', 'breaking bad', 'suits', 'the newsroom', 'eureka', 
-              'falling skies', 'futurama']
+              'falling skies', 'futurama', 'falling skies']
 
     shows = fall + winter + spring
     tv    = TVShows(shows)
