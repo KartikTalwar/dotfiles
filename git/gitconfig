@@ -63,6 +63,6 @@
     cs                      = !git ls-staged | grep ".php" | xargs phpcs
 
     peeps                   = !git log --pretty=format:%aN | sort | uniq -c | sort -rn
-    graph                   = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    graph                   = log --graph --pretty=format:'%C(yellow)%h%Creset [%an]: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     standup                 = log --since yesterday --oneline --author 'Kartik Talwar'
     unadd                   = reset HEAD
