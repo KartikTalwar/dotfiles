@@ -11,3 +11,6 @@ ln -fs $pwd/ssh/config ~/.ssh/config
 
 ## Vim
 ln -fs $pwd/vim/vimrc ~/.vimrc
+
+## Bash
+ln -fs $pwd/bash/bash_aliases ~/.bash_aliases
