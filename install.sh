@@ -8,3 +8,6 @@ ln -fs $pwd/git/gitignore ~/.gitignore
 
 ## SSH
 ln -fs $pwd/ssh/config ~/.ssh/config
+
+## Vim
+ln -fs $pwd/vim/vimrc ~/.vimrc
