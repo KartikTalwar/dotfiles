@@ -1,10 +1,8 @@
 Host *
-    PrefferedAuthentications hostbased, publickey, password, keyboard-interactive
     Compression yes
     ServerAliveInterval 300
     ServerAliveCountMax 100
     CompressionLevel 9
-    FallBackToRsh no
 
 Host physclub
     HostName caffeine.csclub.uwaterloo.ca
