@@ -53,6 +53,10 @@ alias yum='sudo yum'
 alias help='man'
 
 
+# Utilities
+alias stream='wget -qO-'
+
+
 # Vagrant
 alias vu='vagrant up'
 alias vd='vagrant destroy'
