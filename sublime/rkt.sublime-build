@@ -1,0 +1,6 @@
+{
+    "cmd" : ["C:\\Program Files\\Racket\\raco.exe","test", "--quiet", "$file_name"],
+    "selector" : "source.rkt",
+    "shell" : true,
+    "working_dir" : "$file_path"
+}
