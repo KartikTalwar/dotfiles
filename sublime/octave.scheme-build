@@ -1,6 +1,6 @@
 {
     "cmd" : ["C:\\Octave\\3.2.4_gcc-4.4.0\\bin\\octave.exe", "--quiet", "$file_name"],
-    "selector" : "source.m",
+    "selector" : "source.m, source.matlab",
     "shell" : true,
     "working_dir" : "$file_path"
 }
