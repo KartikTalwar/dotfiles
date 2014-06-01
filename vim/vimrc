@@ -3,11 +3,11 @@ set encoding=utf-8
 set hlsearch
 set smartcase
 set ignorecase
-set softtabstop=4
+set softtabstop=2
 set wrap
 set backspace=2
 set t_Co=256
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
