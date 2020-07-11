@@ -4,6 +4,13 @@
 [core]
     excludesfile            = ~/.gitignore
     editor                  = /usr/bin/vim
+    pager                   = delta
+[interactive]
+    diffFilter              = delta --color-only
+[delta]
+    line-numbers            = true
+    whitespace-error-style  = 22 reverse
+    syntax-theme            = TwoDark
 [color]
     branch                  = auto
     diff                    = auto
